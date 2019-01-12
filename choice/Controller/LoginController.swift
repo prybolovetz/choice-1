@@ -26,7 +26,7 @@ class LoginController: UIViewController {
         button.setTitle("Register", for: UIControl.State())
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(UIColor.white, for: UIControl.State())
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
         
         button.addTarget(self, action: #selector(handleLoginRegister), for: .touchUpInside)
         
@@ -84,6 +84,7 @@ class LoginController: UIViewController {
             let usersReference = ref.child("users").child(uid)
             //Adding to the database.
             let values = ["name": name, "email": email]
+            
             usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
                 
                 if let err = err {
@@ -145,12 +146,12 @@ class LoginController: UIViewController {
     lazy var loginRegisterSegmentedControl: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["Log in", "Register"])
         sc.translatesAutoresizingMaskIntoConstraints = false
-        sc.tintColor = UIColor(r: 144, g: 144, b: 144)
+        sc.tintColor = UIColor.white
         sc.selectedSegmentIndex = 1
         sc.addTarget(self, action: #selector(handleLoginRegisterChange), for: .valueChanged)
         return sc
     }()
-
+    
     @objc func handleLoginRegisterChange() {
         let title = loginRegisterSegmentedControl.titleForSegment(at: loginRegisterSegmentedControl.selectedSegmentIndex)
         loginRegisterButton.setTitle(title, for: UIControl.State())

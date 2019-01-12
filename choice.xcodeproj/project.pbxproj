@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0D28848E21E8BA1B0024FB0F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D28848D21E8BA1B0024FB0F /* AppDelegate.swift */; };
-		0D28849021E8BA1B0024FB0F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D28848F21E8BA1B0024FB0F /* ViewController.swift */; };
+		0D28849021E8BA1B0024FB0F /* MessagesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D28848F21E8BA1B0024FB0F /* MessagesController.swift */; };
 		0D28849321E8BA1B0024FB0F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D28849121E8BA1B0024FB0F /* Main.storyboard */; };
 		0D28849521E8BA1F0024FB0F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D28849421E8BA1F0024FB0F /* Assets.xcassets */; };
 		0D28849821E8BA1F0024FB0F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D28849621E8BA1F0024FB0F /* LaunchScreen.storyboard */; };
@@ -17,6 +17,8 @@
 		0D2884BD21E8BB7D0024FB0F /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2884BC21E8BB7D0024FB0F /* LoginController.swift */; };
 		0D2884BF21E8BC650024FB0F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2884BE21E8BC650024FB0F /* UIColor.swift */; };
 		0D91F90021E95AD600EEFAC6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D91F8FF21E95AD500EEFAC6 /* GoogleService-Info.plist */; };
+		0D91F90221E96D0E00EEFAC6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D91F90121E96D0E00EEFAC6 /* User.swift */; };
+		0D91F90521E96D9500EEFAC6 /* NewMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D91F90421E96D9500EEFAC6 /* NewMessageController.swift */; };
 		0F5FE728917ABD1833B0E001 /* Pods_choiceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46ABBA1469FC122CB249515C /* Pods_choiceUITests.framework */; };
 		20B874ED4F520421599B00E5 /* Pods_choice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15A932243D35138CBC7686AA /* Pods_choice.framework */; };
 		4C4E9A541C33125683451BAC /* Pods_choiceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAB63024F2DEB20AB0A07BF /* Pods_choiceTests.framework */; };
@@ -43,7 +45,7 @@
 		024FEBBC6D0F7B34C9AD8C13 /* Pods-choice.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-choice.release.xcconfig"; path = "Pods/Target Support Files/Pods-choice/Pods-choice.release.xcconfig"; sourceTree = "<group>"; };
 		0D28848A21E8BA1B0024FB0F /* choice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = choice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D28848D21E8BA1B0024FB0F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0D28848F21E8BA1B0024FB0F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0D28848F21E8BA1B0024FB0F /* MessagesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesController.swift; sourceTree = "<group>"; };
 		0D28849221E8BA1B0024FB0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0D28849421E8BA1F0024FB0F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0D28849721E8BA1F0024FB0F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,6 +59,8 @@
 		0D2884BC21E8BB7D0024FB0F /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		0D2884BE21E8BC650024FB0F /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		0D91F8FF21E95AD500EEFAC6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0D91F90121E96D0E00EEFAC6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		0D91F90421E96D9500EEFAC6 /* NewMessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageController.swift; sourceTree = "<group>"; };
 		15A932243D35138CBC7686AA /* Pods_choice.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_choice.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46ABBA1469FC122CB249515C /* Pods_choiceUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_choiceUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A628AE7B2CB4A6EF79E6B69 /* Pods-choiceUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-choiceUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-choiceUITests/Pods-choiceUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 		0D28848C21E8BA1B0024FB0F /* choice */ = {
 			isa = PBXGroup;
 			children = (
+				0D91F90321E96D1B00EEFAC6 /* Model */,
 				0D2884BB21E8BB420024FB0F /* Controller */,
 				0D28848D21E8BA1B0024FB0F /* AppDelegate.swift */,
 				0D28849121E8BA1B0024FB0F /* Main.storyboard */,
@@ -153,10 +158,19 @@
 		0D2884BB21E8BB420024FB0F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0D28848F21E8BA1B0024FB0F /* ViewController.swift */,
 				0D2884BC21E8BB7D0024FB0F /* LoginController.swift */,
+				0D28848F21E8BA1B0024FB0F /* MessagesController.swift */,
+				0D91F90421E96D9500EEFAC6 /* NewMessageController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		0D91F90321E96D1B00EEFAC6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0D91F90121E96D0E00EEFAC6 /* User.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C2C49BB629B0534361C1F96A /* Pods */ = {
@@ -415,9 +429,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D28849021E8BA1B0024FB0F /* ViewController.swift in Sources */,
+				0D28849021E8BA1B0024FB0F /* MessagesController.swift in Sources */,
 				0D2884BF21E8BC650024FB0F /* UIColor.swift in Sources */,
+				0D91F90521E96D9500EEFAC6 /* NewMessageController.swift in Sources */,
 				0D2884BD21E8BB7D0024FB0F /* LoginController.swift in Sources */,
+				0D91F90221E96D0E00EEFAC6 /* User.swift in Sources */,
 				0D28848E21E8BA1B0024FB0F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
