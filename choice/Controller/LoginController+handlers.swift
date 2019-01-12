@@ -10,34 +10,32 @@ import UIKit
 import Firebase
 import FirebaseStorage
 
-
 extension LoginController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-  @objc  func handleRegister() {
-         //Work with data (user enters data), adding to the database.
+   @objc func handleRegister() {
         guard let email = emailTextField.text, let password = passwordTextField.text, let name = nameTextField.text else {
             print("Form is not valid")
             return
         }
         
-        Auth.auth().createUser(withEmail: email, password: password, completion: { (res, error) in
+        Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
             
-            if let error = error {
-                print(error)
+            if error != nil {
+                print(error ?? "")
                 return
             }
             
-            guard let uid = res?.user.uid else {
+            guard let uid = user?.user.uid else {
                 return
             }
             
             //successfully authenticated user
-            let imageName = NSUUID().uuidString
-            //Saving pictures in the database
-            let storageRef = Storage.storage().reference().child("image.png")
-                //.child("\(imageName).png")
+            let imageName = UUID().uuidString
+            let storageRef = Storage.storage().reference().child("profile_images").child("\(imageName).jpg")
             
-            if let uploadData = self.profileImageView.image!.pngData() {
+            if let profileImage = self.profileImageView.image, let uploadData = profileImage.jpegData(compressionQuality: 0.1) {
+                
+                //            if let uploadData = UIImagePNGRepresentation(self.profileImageView.image!) {
                 
                 storageRef.putData(uploadData, metadata: nil, completion: { (_, err) in
                     
@@ -69,10 +67,15 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
         
         usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
             
-            if let err = err {
-                print(err)
+            if err != nil {
+                print(err ?? "")
                 return
             }
+            
+            //            self.messagesController?.fetchUserAndSetupNavBarTitle()
+            //            self.messagesController?.navigationItem.title = values["name"] as? String
+            let user = User(dictionary: values)
+            self.messagesController?.setupNavBarWithUser(user)
             
             self.dismiss(animated: true, completion: nil)
         })
@@ -88,7 +91,6 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-
         let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         
         

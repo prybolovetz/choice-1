@@ -20,7 +20,7 @@ import SwiftyJSON
 
 class LoginController: UIViewController {
     
-    
+    var messagesController: MessagesController?
     
     let inputsContainerView: UIView = {
         let view = UIView()
@@ -37,7 +37,7 @@ class LoginController: UIViewController {
         hud.interactionType = .blockAllTouches
         return hud
     }()
-
+    
     lazy var SingInWithFacebookButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Continue with Facebook", for: UIControl.State())
@@ -56,7 +56,7 @@ class LoginController: UIViewController {
         return button
     }()
     
- 
+    
     @objc func handleSignInWithFacebookButtonTapped() {
         hud.textLabel.text = "Logging in with Facebook..."
         hud.show(in: view, animated: true)
@@ -74,10 +74,10 @@ class LoginController: UIViewController {
         }
     }
     
-   
     
     
-   
+    
+    
     lazy var loginRegisterButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(r: 144, g: 144, b: 144)
@@ -113,6 +113,8 @@ class LoginController: UIViewController {
             }
             
             //successfully logged in our user
+            self.messagesController?.fetchUserAndSetupNavBarTitle()
+            
             self.dismiss(animated: true, completion: nil)
             
         })
