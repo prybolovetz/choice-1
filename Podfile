@@ -11,8 +11,21 @@ pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod 'Firebase/Storage'
 
+pod 'FBSDKCoreKit'
+pod 'FacebookSDK'
+pod 'FBSDKLoginKit'
+pod 'FBSDKShareKit'
+pod 'FacebookCore'
+pod 'FacebookLogin'
 
-  target 'choiceTests' do
+pod 'SwiftyJSON'
+
+pod 'JGProgressHUD'
+
+
+
+
+target 'choiceTests' do
     inherit! :search_paths
     # Pods for testing
   end

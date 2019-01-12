@@ -8,8 +8,19 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
+import JGProgressHUD
+import FacebookCore
+import FacebookLogin
+import FirebaseStorage
+import FirebaseDatabase
+import SwiftyJSON
+
+
 
 class LoginController: UIViewController {
+    
+    
     
     let inputsContainerView: UIView = {
         let view = UIView()
@@ -20,6 +31,53 @@ class LoginController: UIViewController {
         return view
     }()
     
+    
+    let hud: JGProgressHUD = {
+        let hud = JGProgressHUD(style: .light)
+        hud.interactionType = .blockAllTouches
+        return hud
+    }()
+
+    lazy var SingInWithFacebookButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Continue with Facebook", for: UIControl.State())
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 18)
+        button.setTitleColor(UIColor(red: 0, green: 0, blue: 0, alpha: 1), for: UIControl.State())
+        button.backgroundColor = UIColor.white
+        button.layer.masksToBounds = true
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        button.setImage(#imageLiteral(resourceName: "FacebookButton").withRenderingMode(.alwaysTemplate), for: .normal)
+        button.tintColor = .black
+        button.contentMode = .scaleAspectFit
+        
+        button.addTarget(self, action: #selector(handleLoginRegister), for: .touchUpInside)
+        
+        return button
+    }()
+    
+ 
+    @objc func handleSignInWithFacebookButtonTapped() {
+        hud.textLabel.text = "Logging in with Facebook..."
+        hud.show(in: view, animated: true)
+        let loginManager = LoginManager()
+        loginManager.logIn(readPermissions: [.publicProfile, .email], viewController: self) { (result) in
+            switch result {
+            case .success(grantedPermissions: _, declinedPermissions: _, token: _):
+                print("Succesfully logged in into Facebook.")
+                
+            case .failed(let err):
+                Service.dismissHud(self.hud, text: "Error", detailText: "Failed to get Facebook user with error: \(err)", delay: 3)
+            case .cancelled:
+                Service.dismissHud(self.hud, text: "Error", detailText: "Canceled getting Facebook user.", delay: 3)
+            }
+        }
+    }
+    
+   
+    
+    
+   
     lazy var loginRegisterButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor(r: 144, g: 144, b: 144)
@@ -98,6 +156,7 @@ class LoginController: UIViewController {
         })
     }
     
+    
     let nameTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Name"
@@ -134,7 +193,7 @@ class LoginController: UIViewController {
         return tf
     }()
     
-    let profileImageView: UIImageView = {
+    var profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "logo")
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -146,7 +205,7 @@ class LoginController: UIViewController {
     lazy var loginRegisterSegmentedControl: UISegmentedControl = {
         let sc = UISegmentedControl(items: ["Log in", "Register"])
         sc.translatesAutoresizingMaskIntoConstraints = false
-        sc.tintColor = UIColor.white
+        sc.tintColor = UIColor(r: 144, g: 144, b: 144)
         sc.selectedSegmentIndex = 1
         sc.addTarget(self, action: #selector(handleLoginRegisterChange), for: .valueChanged)
         return sc
@@ -184,10 +243,14 @@ class LoginController: UIViewController {
         view.addSubview(profileImageView)
         view.addSubview(loginRegisterSegmentedControl)
         
+        view.addSubview(SingInWithFacebookButton)
+        
         setupInputsContainerView()
         setupLoginRegisterButton()
         setupProfileImageView()
         setupLoginRegisterSegmentedControl()
+        
+        setupSingInWithFacebookButton()
     }
     
     func setupLoginRegisterSegmentedControl() {
@@ -272,6 +335,15 @@ class LoginController: UIViewController {
         loginRegisterButton.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
         loginRegisterButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
+    
+    func setupSingInWithFacebookButton() {
+        //need x, y, width, height constraints
+        SingInWithFacebookButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        SingInWithFacebookButton.topAnchor.constraint(equalTo: loginRegisterButton.bottomAnchor, constant: 200).isActive = true
+        SingInWithFacebookButton.widthAnchor.constraint(equalTo: inputsContainerView.widthAnchor).isActive = true
+        SingInWithFacebookButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
+    
     
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return .lightContent
