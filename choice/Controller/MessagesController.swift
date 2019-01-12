@@ -8,13 +8,15 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
+import FirebaseDatabase
 
 class MessagesController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(handleLogout))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Log out", style: .plain, target: self, action: #selector(handleLogout))
         
         let image = UIImage(named: "kontakt")
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(handleNewMessage))
@@ -23,7 +25,6 @@ class MessagesController: UITableViewController {
     }
     
     @objc func handleNewMessage() {
-        //Сreates a new controller NewMessageController
         let newMessageController = NewMessageController()
         let navController = UINavigationController(rootViewController: newMessageController)
         present(navController, animated: true, completion: nil)

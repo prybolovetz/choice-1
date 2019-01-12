@@ -119,42 +119,6 @@ class LoginController: UIViewController {
         
     }
     
-    //Work with data (user enters data), adding to the database.
-    func handleRegister() {
-        guard let email = emailTextField.text, let password = passwordTextField.text, let name = nameTextField.text else {
-            print("Form is not valid")
-            return
-        }
-        
-        Auth.auth().createUser(withEmail: email, password: password, completion: { (res, error) in
-            
-            if let error = error {
-                print(error)
-                return
-            }
-            
-            guard let uid = res?.user.uid else {
-                return
-            }
-            
-            //Successfully authenticated user
-            let ref = Database.database().reference()
-            let usersReference = ref.child("users").child(uid)
-            //Adding to the database.
-            let values = ["name": name, "email": email]
-            
-            usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
-                
-                if let err = err {
-                    print(err)
-                    return
-                }
-                
-                self.dismiss(animated: true, completion: nil)
-            })
-            
-        })
-    }
     
     
     let nameTextField: UITextField = {
@@ -193,11 +157,15 @@ class LoginController: UIViewController {
         return tf
     }()
     
-    var profileImageView: UIImageView = {
+    lazy var profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "logo")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
+        
+        imageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImageView)))
+        imageView.isUserInteractionEnabled = true
+        
         return imageView
     }()
     

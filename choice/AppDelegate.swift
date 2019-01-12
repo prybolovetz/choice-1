@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.rootViewController = UINavigationController(rootViewController: MessagesController())
         //Starts up ViewController
+        
         FBSDKApplicationDelegate.sharedInstance().application(application,
         didFinishLaunchingWithOptions:launchOptions
             )

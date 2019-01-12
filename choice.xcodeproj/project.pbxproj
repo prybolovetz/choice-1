@@ -17,6 +17,8 @@
 		0D2884BD21E8BB7D0024FB0F /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2884BC21E8BB7D0024FB0F /* LoginController.swift */; };
 		0D2884BF21E8BC650024FB0F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2884BE21E8BC650024FB0F /* UIColor.swift */; };
 		0D3A415021EA3A6B00643459 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3A414F21EA3A6B00643459 /* Service.swift */; };
+		0D3A415221EA509900643459 /* LoginController+handlers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3A415121EA509900643459 /* LoginController+handlers.swift */; };
+		0D8EC66121EA704D00CE0312 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8EC66021EA704D00CE0312 /* Extensions.swift */; };
 		0D91F90021E95AD600EEFAC6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D91F8FF21E95AD500EEFAC6 /* GoogleService-Info.plist */; };
 		0D91F90221E96D0E00EEFAC6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D91F90121E96D0E00EEFAC6 /* User.swift */; };
 		0D91F90521E96D9500EEFAC6 /* NewMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D91F90421E96D9500EEFAC6 /* NewMessageController.swift */; };
@@ -60,6 +62,8 @@
 		0D2884BC21E8BB7D0024FB0F /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		0D2884BE21E8BC650024FB0F /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		0D3A414F21EA3A6B00643459 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		0D3A415121EA509900643459 /* LoginController+handlers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginController+handlers.swift"; sourceTree = "<group>"; };
+		0D8EC66021EA704D00CE0312 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		0D91F8FF21E95AD500EEFAC6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0D91F90121E96D0E00EEFAC6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0D91F90421E96D9500EEFAC6 /* NewMessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageController.swift; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 		0D28848C21E8BA1B0024FB0F /* choice */ = {
 			isa = PBXGroup;
 			children = (
+				0D8EC65F21EA700300CE0312 /* Helpers */,
 				0D91F90321E96D1B00EEFAC6 /* Model */,
 				0D2884BB21E8BB420024FB0F /* Controller */,
 				0D28848D21E8BA1B0024FB0F /* AppDelegate.swift */,
@@ -164,8 +169,17 @@
 				0D2884BC21E8BB7D0024FB0F /* LoginController.swift */,
 				0D28848F21E8BA1B0024FB0F /* MessagesController.swift */,
 				0D91F90421E96D9500EEFAC6 /* NewMessageController.swift */,
+				0D3A415121EA509900643459 /* LoginController+handlers.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		0D8EC65F21EA700300CE0312 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0D8EC66021EA704D00CE0312 /* Extensions.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		0D91F90321E96D1B00EEFAC6 /* Model */ = {
@@ -449,7 +463,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D28849021E8BA1B0024FB0F /* MessagesController.swift in Sources */,
+				0D8EC66121EA704D00CE0312 /* Extensions.swift in Sources */,
 				0D3A415021EA3A6B00643459 /* Service.swift in Sources */,
+				0D3A415221EA509900643459 /* LoginController+handlers.swift in Sources */,
 				0D2884BF21E8BC650024FB0F /* UIColor.swift in Sources */,
 				0D91F90521E96D9500EEFAC6 /* NewMessageController.swift in Sources */,
 				0D2884BD21E8BB7D0024FB0F /* LoginController.swift in Sources */,
