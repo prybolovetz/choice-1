@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 
 class NewMessageController: UITableViewController {
     
@@ -19,7 +20,7 @@ class NewMessageController: UITableViewController {
         super.viewDidLoad()
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(handleCancel))
-        self.navigationController?.navigationBar.tintColor = UIColor.white
+        
         tableView.register(UserCell.self, forCellReuseIdentifier: cellId)
         
         fetchUser()
@@ -31,8 +32,6 @@ class NewMessageController: UITableViewController {
             if let dictionary = snapshot.value as? [String: AnyObject] {
                 let user = User(dictionary: dictionary)
                 user.id = snapshot.key
-                
-                //if you use this setter, your app will crash if your class properties don't exactly match up with the firebase dictionary keys
                 self.users.append(user)
                 
                 //this will crash because of background thread, so lets use dispatch_async to fix
@@ -83,12 +82,6 @@ class NewMessageController: UITableViewController {
     }
     
 }
-
-
-
-
-
-
 
 
 

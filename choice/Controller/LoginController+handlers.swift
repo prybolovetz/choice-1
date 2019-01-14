@@ -8,11 +8,14 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
+import FirebaseAuth
 import FirebaseStorage
 
 extension LoginController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-   @objc func handleRegister() {
+    func handleRegister() {
+        //Work with data (user enters data), adding to the database.
         guard let email = emailTextField.text, let password = passwordTextField.text, let name = nameTextField.text else {
             print("Form is not valid")
             return
@@ -21,7 +24,7 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
         Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
             
             if error != nil {
-                print(error ?? "")
+                print(error!)
                 return
             }
             
@@ -34,8 +37,6 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
             let storageRef = Storage.storage().reference().child("profile_images").child("\(imageName).jpg")
             
             if let profileImage = self.profileImageView.image, let uploadData = profileImage.jpegData(compressionQuality: 0.1) {
-                
-                //            if let uploadData = UIImagePNGRepresentation(self.profileImageView.image!) {
                 
                 storageRef.putData(uploadData, metadata: nil, completion: { (_, err) in
                     
@@ -68,7 +69,7 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
         usersReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
             
             if err != nil {
-                print(err ?? "")
+                print(err!)
                 return
             }
             
@@ -91,6 +92,7 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        // Local variable inserted by Swift 4.2 migrator.
         let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
         
         
@@ -118,6 +120,8 @@ extension LoginController: UIImagePickerControllerDelegate, UINavigationControll
     
 }
 
+// Helper function inserted by Swift 4.2 migrator.
+//
 fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
     return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
 }

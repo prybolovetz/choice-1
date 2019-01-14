@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>GameOfChats wants access to your photos library.</string>
+	<string>Lets Build That App needs access to photos</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -44,8 +44,6 @@
 	<true/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
-	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
