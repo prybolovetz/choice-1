@@ -8,9 +8,7 @@
 
 import UIKit
 import Firebase
-import FirebaseDatabase
-import FirebaseAuth
-import FirebaseStorage
+
 
 // FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
 // Consider refactoring the code to use the non-optional operators.
@@ -277,6 +275,7 @@ class MessagesController: UITableViewController {
         //        titleView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showChatController)))
     }
     
+    //brings us to the screen controller
     func showChatControllerForUser(_ user: User) {
         let chatLogController = ChatLogController(collectionViewLayout: UICollectionViewFlowLayout())
         chatLogController.user = user

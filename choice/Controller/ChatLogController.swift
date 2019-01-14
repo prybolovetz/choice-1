@@ -8,9 +8,7 @@
 
 import UIKit
 import Firebase
-import FirebaseDatabase
-import FirebaseAuth
-import FirebaseStorage
+
 
 class ChatLogController: UICollectionViewController, UITextFieldDelegate, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
